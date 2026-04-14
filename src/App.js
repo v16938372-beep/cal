@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React ,{ useState } from 'react';
  
@@ -41,8 +41,8 @@ function App() {
      <div>
        <input type="button" value="00" onClick={(e)=>setValue(value+e.target.value)}/> 
        <input type="button" value="0"  onClick={(e)=>setValue(value+e.target.value)}/> 
-       <input type="button" value="=" onClick={(e)=>setValue(eval(value))} /> 
-         
+      <input type="button"  value="="  onClick={() => setValue(Function('"use strict"; return (' + value + ')')())} 
+/>
      </div>
         </form>
       </div>
