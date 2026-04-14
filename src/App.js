@@ -41,8 +41,14 @@ function App() {
      <div>
        <input type="button" value="00" onClick={(e)=>setValue(value+e.target.value)}/> 
        <input type="button" value="0"  onClick={(e)=>setValue(value+e.target.value)}/> 
-      <input type="button"  value="="  onClick={() => setValue(Function('"use strict"; return (' + value + ')')())} 
-/>
+       onClick={() => {
+  try {
+    // eslint-disable-next-line no-eval
+    setValue(eval(value).toString());
+  } catch (error) {
+    setValue("Error");
+  }
+}}
      </div>
         </form>
       </div>
